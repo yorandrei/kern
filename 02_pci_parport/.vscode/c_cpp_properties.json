@@ -1,0 +1,14 @@
+{
+    "configurations": [
+      {
+        "name": "KERNEL",
+        "includePath":	["${workspaceFolder}",
+                          "/lib/modules/4.9.201-tegra/build/include/"
+                          ],
+        "defines": [],
+        "cStandard": "c11",
+        "cppStandard": "c++14"
+      }
+    ],
+    "version": 4
+  }
