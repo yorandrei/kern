@@ -1,8 +1,6 @@
 #include <linux/module.h>
 #include <linux/init.h>
 #include <linux/pci.h>
-#include <linux/jiffies.h>
-#include <linux/timer.h>
 
 /* Meta Information */
 MODULE_LICENSE("GPL");
@@ -14,17 +12,6 @@ MODULE_DESCRIPTION("A simple LKM for testing a PCIe to parallel port adapter");
 
 /** PCI device */
 static struct pci_dev *ptr; 
-
-/** Variable for timer */
-static struct timer_list my_timer;
-
-/**
- * @brief Timer Callback Function
- *
- * Reads in Inputs from Parport and 
- * writes value in 7 segment display
- */
-
 
 /**
  * @brief This function is called when the module is loaded into the kernel
@@ -50,10 +37,6 @@ static int __init ModuleInit(void) {
     printk("pci_parport - VENDOR ID: 0x%x\n", val);
     pci_read_config_word(ptr, PCI_DEVICE_ID, &val);
     printk("pci_parport - VENDOR ID: 0x%x\n", val);
-
-    /* Initialize timer */
-
-
     return 0;
 }
 

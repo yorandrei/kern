@@ -3,7 +3,7 @@
       {
         "name": "KERNEL",
         "includePath":	["${workspaceFolder}",
-                          "/lib/modules/4.9.201-tegra/build/include/"
+                          "/lib/modules/4.9.253-tegra/build/include/"
                           ],
         "defines": [],
         "cStandard": "c11",
