@@ -3,6 +3,7 @@
 #include <linux/pci.h>
 #include <linux/jiffies.h>
 #include <linux/timer.h>
+#include <linux/moduleparam.h>
 
 /* Meta Information */
 MODULE_LICENSE("GPL");
@@ -12,11 +13,15 @@ MODULE_DESCRIPTION("A simple LKM for testing a PCIe to parallel port adapter");
 #define VENDOR_ID 0x1c00
 #define DEVICE_ID 0x3050
 
+static int delay_ak = 1;
+module_param(delay_ak, int, 0644);
+MODULE_PARM_DESC(delay_ak, "How many seconds to wait before timed mesages");
+
 /** PCI device */
 static struct pci_dev *ptr; 
 
 /** Variable for timer */
-static struct timer_list my_timer;
+//static struct timer_list my_timer;
 
 /**
  * @brief Timer Callback Function
@@ -50,6 +55,8 @@ static int __init ModuleInit(void) {
     printk("pci_parport - VENDOR ID: 0x%x\n", val);
     pci_read_config_word(ptr, PCI_DEVICE_ID, &val);
     printk("pci_parport - VENDOR ID: 0x%x\n", val);
+
+    pr_info("Delay set to %d\n", delay_ak);
 
     /* Initialize timer */
 
