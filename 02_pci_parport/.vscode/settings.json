@@ -3,6 +3,7 @@
         "module.h": "c",
         "pci.h": "c",
         "init.h": "c",
-        "moduleparam.h": "c"
+        "moduleparam.h": "c",
+        "timer.h": "c"
     }
 }
